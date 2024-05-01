@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc55th7e6lb3j"]
+[gd_scene load_steps=10 format=3 uid="uid://bc55th7e6lb3j"]
 
+[ext_resource type="Script" path="res://Enemy/enemyslime.cs" id="1_1vqys"]
 [ext_resource type="Texture2D" uid="uid://ddj8eqrmxx7d" path="res://assets/sprites/slime_green.png" id="1_sa2kx"]
 [ext_resource type="PackedScene" uid="uid://drpiyky5y85rj" path="res://Killzone/killzone.tscn" id="2_pslup"]
 
@@ -43,6 +44,7 @@ animations = [{
 size = Vector2(14, 12)
 
 [node name="EnemySlime" type="Node2D"]
+script = ExtResource("1_1vqys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)

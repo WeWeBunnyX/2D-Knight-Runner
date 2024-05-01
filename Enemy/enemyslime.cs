@@ -23,9 +23,8 @@ public partial class enemyslime : Node2D
 	public override void _Process(double delta)
 	{
 
-
 	Position += new Vector2(-1, 0); 
-	
+
 	if (_RaycastLeft.IsColliding())
 	    Position += new Vector2(-1, 0);  
 

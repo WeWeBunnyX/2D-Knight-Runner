@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhxvcboijl182"]
+[gd_scene load_steps=9 format=3 uid="uid://dhxvcboijl182"]
 
 [ext_resource type="PackedScene" uid="uid://bux2t5u5llcvm" path="res://Player/character_body_2d.tscn" id="1_wdswq"]
 [ext_resource type="Texture2D" uid="uid://ij7h7xe85nis" path="res://assets/sprites/world_tileset.png" id="2_32x5p"]
@@ -407,6 +407,43 @@ texture = ExtResource("2_32x5p")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yl1cq")
 
+[sub_resource type="Animation" id="Animation_waxfb"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(433, 22), Vector2(545, 22)]
+}
+
+[sub_resource type="Animation" id="Animation_1h58v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(433, 22)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1orw"]
+_data = {
+"RESET": SubResource("Animation_1h58v"),
+"move": SubResource("Animation_waxfb")
+}
+
 [node name="Gameplay" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wdswq")]
@@ -422,4 +459,10 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 1, 0, 0, 65534, 0, 0,
 layer_1/tile_data = PackedInt32Array()
 
 [node name="MovingPlatform" parent="." instance=ExtResource("3_mvrlt")]
-position = Vector2(485, 51)
+position = Vector2(433, 22)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform"]
+libraries = {
+"": SubResource("AnimationLibrary_v1orw")
+}
+autoplay = "move"

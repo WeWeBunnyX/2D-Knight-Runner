@@ -12,9 +12,13 @@ public partial class enemyslime : Node2D
 	public override void _Process(double delta)
 	{
 	// code to move character left by one pixel every frame
-		//Position = Position with { X = 150.0f };            This code only moves sprite to a fixed place immediately, no motion or movement involved.
+		//Position = Position with { X = 150.0f };               This code only moves sprite to a fixed place immediately, no motion or movement involved.
       
-	    Position += new Vector2(-1, 0);                        // this actually moves the sprite                   
+	    //Position += new Vector2(-1, 0);                        // this actually moves the sprite   
+
+		/*var newPosition = Position;
+		newPosition.X = 100.0f;                                  //Legit Same as Position = Position with { X = 150.0f }; 
+		Position = newPosition; */          
 
 
 	}

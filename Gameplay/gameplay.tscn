@@ -497,4 +497,4 @@ libraries = {
 autoplay = "move"
 
 [node name="EnemySlime" parent="." instance=ExtResource("6_tpdjl")]
-position = Vector2(39, -4)
+position = Vector2(711, -4)

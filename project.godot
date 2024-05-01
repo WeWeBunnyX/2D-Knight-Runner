@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 project/assembly_name="2DKnightPlatformer"
 
+[layer_names]
+
+2d_physics/layer_1="Floor"
+2d_physics/layer_2="Player"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

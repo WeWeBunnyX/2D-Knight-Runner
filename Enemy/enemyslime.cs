@@ -11,10 +11,10 @@ public partial class enemyslime : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-	// write a code to move character left by one pixel every frame
-		Position += new Vector2(-1, 0);
-		Position = Position with { X = 100.0f }; 
-
+	// code to move character left by one pixel every frame
+		//Position = Position with { X = 150.0f };            This code only moves sprite to a fixed place immediately, no motion or movement involved.
+      
+	    Position += new Vector2(-1, 0);                        // this actually moves the sprite                   
 
 
 	}

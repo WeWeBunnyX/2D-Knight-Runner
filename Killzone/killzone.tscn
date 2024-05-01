@@ -4,5 +4,10 @@
 
 [node name="Killzone" type="Area2D"]
 script = ExtResource("1_obhij")
+_timerPath = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

@@ -41,7 +41,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv5oq"]
 radius = 6.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

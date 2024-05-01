@@ -45,6 +45,7 @@ size = Vector2(14, 12)
 
 [node name="EnemySlime" type="Node2D"]
 script = ExtResource("1_1vqys")
+_RaycastPath = NodePath("RayCast2D2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
@@ -58,3 +59,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_uifbc")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(2, 7)
+target_position = Vector2(10, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(2, 7)
+target_position = Vector2(-12, 0)

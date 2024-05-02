@@ -47,6 +47,7 @@ size = Vector2(14, 12)
 script = ExtResource("1_1vqys")
 _RaycastPathLeft = NodePath("RayCast2D2")
 _RaycastPathRight = NodePath("RayCast2D")
+_AnimatedSpritePath = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)

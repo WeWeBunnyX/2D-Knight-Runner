@@ -3,32 +3,50 @@ using System;
 
 public partial class enemyslime : Node2D
 {
-
-	[Export]                                   
+    [Export]                                   
     private NodePath _RaycastPathLeft;  
 
-	[Export] 
-	private NodePath _RaycastPathRight;                
+    [Export] 
+    private NodePath _RaycastPathRight;       
+
+    [Export]
+	private NodePath _AnimatedSpritePath;   
+
+
     private RayCast2D _RaycastLeft;  
-	private RayCast2D _RaycastRight;    
+    private RayCast2D _RaycastRight;    
+	private AnimatedSprite2D _AnimatedSprite;
 
-	
-	public override void _Ready()
-	{
-		_RaycastLeft = GetNode<RayCast2D>(_RaycastPathLeft);  
-		_RaycastRight = GetNode<RayCast2D>(_RaycastPathRight);  
-	}
+    private Vector2 _movementDirection = Vector2.Right; // Initial movement direction
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 
-	Position += new Vector2(-1, 0); 
+    public override void _Ready()
+    {
+        _RaycastLeft = GetNode<RayCast2D>(_RaycastPathLeft);  
+        _RaycastRight = GetNode<RayCast2D>(_RaycastPathRight);  
+		_AnimatedSprite = GetNode<AnimatedSprite2D>(_AnimatedSpritePath);
+    }
 
-	if (_RaycastLeft.IsColliding())
-	    Position += new Vector2(-1, 0);  
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
+		
+        // Move in the current direction
+        Position += _movementDirection;
 
-	if (_RaycastRight.IsColliding())
-		Position += new Vector2(1, 0);                            
-	}
+        // Check for collisions with left and right raycasts
+        if (_RaycastLeft.IsColliding() && _movementDirection.X < 0)
+        {
+            // Collided with left surface, reverse direction and flip
+			_AnimatedSprite.FlipH = !_AnimatedSprite.FlipH;
+            _movementDirection.X*= -1;
+        }
+
+        if (_RaycastRight.IsColliding() && _movementDirection.X> 0)
+        {
+            // Collided with right surface, reverse direction and flip
+			_AnimatedSprite.FlipH = !_AnimatedSprite.FlipH;
+            _movementDirection.X *= -1;
+        }
+    }
 }

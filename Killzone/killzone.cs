@@ -15,7 +15,8 @@ public partial class killzone : Area2D
     private void OnBodyEntered(Node2D body)        //Called when a body enters the Area2D.
     {
         Console.WriteLine("You died!");  
-        Engine.TimeScale = 0.5;                      //Pause the game.         
+        Engine.TimeScale = 0.5;                      //Pause the game.
+        body.GetNode<CollisionShape2D>("CollisionShape2D").QueueFree(); //Remove the CollisionShape2D from the body.   
         _timer.Start();                            //Start the Timer.
     }
 

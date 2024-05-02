@@ -46,6 +46,7 @@ radius = 6.0
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_obtf0")
+_AnimatedSpritePath = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

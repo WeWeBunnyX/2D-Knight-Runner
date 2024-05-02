@@ -14,12 +14,14 @@ public partial class killzone : Area2D
 
     private void OnBodyEntered(Node2D body)        //Called when a body enters the Area2D.
     {
-        Console.WriteLine("You died!");           
+        Console.WriteLine("You died!");  
+        Engine.TimeScale = 0.5;                      //Pause the game.         
         _timer.Start();                            //Start the Timer.
     }
 
     private void OnTimerTimeout()
-    {
+    {   
+        Engine.TimeScale = 1; 
         GetTree().ReloadCurrentScene();             //Reload the current scene.
     }
 }

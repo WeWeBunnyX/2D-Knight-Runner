@@ -461,7 +461,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(0, 7)
+position = Vector2(-3, 7)
 tile_set = SubResource("TileSet_8ynv2")
 format = 2
 layer_0/name = "Background"

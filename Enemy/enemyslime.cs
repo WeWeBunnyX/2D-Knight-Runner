@@ -38,14 +38,16 @@ public partial class enemyslime : Node2D
         if (_RaycastLeft.IsColliding() && _movementDirection.X < 0)
         {
             // Collided with left surface, reverse direction and flip
-			_AnimatedSprite.FlipH = !_AnimatedSprite.FlipH;
+			Console.WriteLine("Enemy Collided with left surface");
+			_AnimatedSprite.FlipH = false;
             _movementDirection.X*= -1;
         }
 
         if (_RaycastRight.IsColliding() && _movementDirection.X> 0)
         {
             // Collided with right surface, reverse direction and flip
-			_AnimatedSprite.FlipH = !_AnimatedSprite.FlipH;
+			Console.WriteLine("Enemy Collided with right surface");
+			_AnimatedSprite.FlipH = true;
             _movementDirection.X *= -1;
         }
     }

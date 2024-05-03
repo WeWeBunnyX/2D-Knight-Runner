@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhxvcboijl182"]
+[gd_scene load_steps=14 format=3 uid="uid://dhxvcboijl182"]
 
+[ext_resource type="Script" path="res://Gameplay/GameManager.cs" id="1_hkqw6"]
 [ext_resource type="PackedScene" uid="uid://bux2t5u5llcvm" path="res://Player/character_body_2d.tscn" id="1_wdswq"]
 [ext_resource type="Texture2D" uid="uid://ij7h7xe85nis" path="res://assets/sprites/world_tileset.png" id="2_32x5p"]
 [ext_resource type="PackedScene" uid="uid://cxmcc2naw5kya" path="res://MovingPlatform/moving_platform.tscn" id="3_mvrlt"]
@@ -452,6 +453,9 @@ _data = {
 
 [node name="Gameplay" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_hkqw6")
+
 [node name="Player" parent="." instance=ExtResource("1_wdswq")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -481,9 +485,11 @@ shape = SubResource("WorldBoundaryShape2D_1s874")
 
 [node name="Coin (Area2D)" parent="Coins" instance=ExtResource("4_q1cjo")]
 position = Vector2(25, -6)
+_GameManagerPath = NodePath("../../GameManager")
 
 [node name="Coin (Area2D)2" parent="Coins" instance=ExtResource("4_q1cjo")]
 position = Vector2(166, -6)
+_GameManagerPath = NodePath("../../GameManager")
 
 [node name="Platforms" type="Node" parent="."]
 

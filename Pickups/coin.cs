@@ -3,64 +3,25 @@ using System;
 
 public partial class coin : Area2D
 {
+	[Export]
+	public NodePath _GameManagerPath;
 
+	private GameManager _GameManager;
+
+	
+	public override void _Ready()
+	{
+		_GameManager = GetNode<GameManager>(_GameManagerPath);
+	}
+	
    private void playerBodyEntered(Node2D body)
    {
-    
+	_GameManager.AddScore();
 	Console.WriteLine("Player collected a coin!");
 	QueueFree();
 
 
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
-
-    
-
-
-
-
-
-
-
-
-
-
 
 
 }

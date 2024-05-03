@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhxvcboijl182"]
+[gd_scene load_steps=15 format=3 uid="uid://dhxvcboijl182"]
 
 [ext_resource type="Script" path="res://Gameplay/GameManager.cs" id="1_hkqw6"]
 [ext_resource type="PackedScene" uid="uid://bux2t5u5llcvm" path="res://Player/character_body_2d.tscn" id="1_wdswq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbxto8ogn4d3m" path="res://Pickups/coin_(area_2d).tscn" id="4_q1cjo"]
 [ext_resource type="PackedScene" uid="uid://drpiyky5y85rj" path="res://Killzone/killzone.tscn" id="5_32eg1"]
 [ext_resource type="PackedScene" uid="uid://bc55th7e6lb3j" path="res://Enemy/enemy.tscn" id="6_tpdjl"]
+[ext_resource type="FontFile" uid="uid://y4xbi024ou0a" path="res://assets/fonts/PixelOperator8.ttf" id="8_3f1v2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yl1cq"]
 texture = ExtResource("2_32x5p")
@@ -455,6 +456,19 @@ _data = {
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_hkqw6")
+_ScorePath = NodePath("Score Count")
+
+[node name="Score Count" type="Label" parent="GameManager"]
+offset_left = 95.0
+offset_top = -81.0
+offset_right = 139.0
+offset_bottom = -62.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_3f1v2")
+theme_override_font_sizes/font_size = 8
+text = "
+
+"
 
 [node name="Player" parent="." instance=ExtResource("1_wdswq")]
 

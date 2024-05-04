@@ -498,12 +498,10 @@ shape = SubResource("WorldBoundaryShape2D_1s874")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin (Area2D)" parent="Coins" instance=ExtResource("4_q1cjo")]
-position = Vector2(25, -6)
-_GameManagerPath = NodePath("../../GameManager")
+position = Vector2(141, 0)
 
 [node name="Coin (Area2D)2" parent="Coins" instance=ExtResource("4_q1cjo")]
-position = Vector2(166, -6)
-_GameManagerPath = NodePath("../../GameManager")
+position = Vector2(26, 0)
 
 [node name="Platforms" type="Node" parent="."]
 

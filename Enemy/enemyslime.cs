@@ -51,4 +51,4 @@ public partial class enemyslime : Node2D
             _movementDirection.X *= -1;
         }
     }
-}
+}  /////hh

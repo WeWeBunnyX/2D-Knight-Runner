@@ -11,6 +11,7 @@ public partial class enemyslime : Node2D
 
     [Export]
 	private NodePath _AnimatedSpritePath;   
+    
 
 
     private RayCast2D _RaycastLeft;  
@@ -52,3 +53,4 @@ public partial class enemyslime : Node2D
         }
     }
 }
+

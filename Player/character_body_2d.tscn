@@ -181,8 +181,10 @@ _AnimatedSpritePath = NodePath("AnimatedSprite2D")
 texture_filter = 1
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_2tibm")
-animation = &"jump"
+animation = &"run"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.651623
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

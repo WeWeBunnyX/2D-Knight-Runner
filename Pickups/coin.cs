@@ -32,3 +32,5 @@ public partial class coin : Area2D
 
 
 }
+
+ 

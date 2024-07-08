@@ -31,14 +31,21 @@ public partial class attack_slime : Node2D
 
 	}
 
-	private void SlimeAreaEntered(Node2D body)
-	{
-
-
-
-	}
 
 	public override void _Process(double delta)
 	{
 	}
+}
+
+public partial class SlimeArea: Area2D
+{
+
+
+	private void SlimeAreaEntered(Node2D body)
+	{
+
+		Console.WriteLine("Bruh");
+	}
+
+
 }

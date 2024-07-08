@@ -140,3 +140,5 @@ target_position = Vector2(-6, 0)
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(12, -2)
 target_position = Vector2(6, 0)
+
+[connection signal="area_entered" from="Area2D" to="." method="SlimeAreaEntered"]

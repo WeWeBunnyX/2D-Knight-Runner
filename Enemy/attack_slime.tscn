@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6rch1l7f3s1h"]
+[gd_scene load_steps=17 format=3 uid="uid://b6rch1l7f3s1h"]
 
 [ext_resource type="Texture2D" uid="uid://tyd7mrmk4io3" path="res://assets/sprites/slime_purple.png" id="1_4ljbd"]
+[ext_resource type="Script" path="res://Enemy/attack_slime.cs" id="1_t4rpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyiux"]
 atlas = ExtResource("1_4ljbd")
@@ -109,6 +110,11 @@ size = Vector2(14, 12)
 
 [node name="AttackSlime" type="Node2D"]
 position = Vector2(-7, 0)
+script = ExtResource("1_t4rpn")
+_RaycastPathUp = NodePath("RayCastUp")
+_RaycastPathLeft = NodePath("RayCastLeft")
+_RaycastPathRight = NodePath("RayCastRight")
+_AnimatedSpritePath = NodePath("PurpleSlime")
 
 [node name="PurpleSlime" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -9)

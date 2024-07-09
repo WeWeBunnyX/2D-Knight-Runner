@@ -14,13 +14,16 @@ public partial class attack_slime : Node2D
 
 	[Export]
 	private NodePath _AnimatedSpritePath;
+	[Export]
+	private NodePath _TimerPath;
 
     private RayCast2D _RaycastUp;
     private RayCast2D _RaycastLeft;
     private RayCast2D _RaycastRight;
     private AnimatedSprite2D _AnimatedSprite;
 	private Vector2	_movementDirection = Vector2.Right;   
-	private bool _IsHit=false;
+	private Timer _Timer;
+	private bool _IsHit= false;
 
     public override void _Ready()
 	{
@@ -28,6 +31,7 @@ public partial class attack_slime : Node2D
 		_RaycastLeft= GetNode<RayCast2D>(_RaycastPathLeft);
 		_RaycastRight= GetNode<RayCast2D>(_RaycastPathRight);
 		_AnimatedSprite= GetNode<AnimatedSprite2D>(_AnimatedSpritePath);
+		_Timer= GetNode<Timer>(_TimerPath);
 
 
 	}
@@ -59,11 +63,45 @@ public partial class attack_slime : Node2D
 		if(_RaycastUp.IsColliding())
 		
 		{
-			_AnimatedSprite.Play("hit");
+
+			if(!_IsHit)
+
+			{
+				_AnimatedSprite.Play("hit");
+				_IsHit= true;
+
+			}
+
+			if(!_Timer.IsStopped())
+			{
+				_Timer.Stop();
+
+			}
+
+		}
+		
+		else {
+
+			if(_IsHit && _Timer.IsStopped())
+			{
+				_Timer.Start(1.0f);
 			
+			}
+
+
+
 
 		}
 
+	
+
+	}
+
+	private void OnTimerTimeout()
+	{
+		_AnimatedSprite.Play("idle");
+        _IsHit = false;
+		
 	}
 
 

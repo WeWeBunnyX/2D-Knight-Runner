@@ -54,6 +54,7 @@ position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_rr7xe")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.342128
 
 [node name="Killzone" parent="." instance=ExtResource("2_pslup")]
 collision_mask = 2

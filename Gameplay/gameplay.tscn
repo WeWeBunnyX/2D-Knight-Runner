@@ -572,4 +572,4 @@ autoplay = "move"
 position = Vector2(712, -4)
 
 [node name="AttackSlime" parent="." instance=ExtResource("10_6tomd")]
-position = Vector2(1283, 51)
+position = Vector2(1283, 52)

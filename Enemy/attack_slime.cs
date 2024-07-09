@@ -20,6 +20,7 @@ public partial class attack_slime : Node2D
     private RayCast2D _RaycastRight;
     private AnimatedSprite2D _AnimatedSprite;
 	private Vector2	_movementDirection = Vector2.Right;   
+	private bool _IsHit=false;
 
     public override void _Ready()
 	{
@@ -49,6 +50,23 @@ public partial class attack_slime : Node2D
 			_movementDirection.X*= -1;
 
 		}
+		
+	}
+
+	public override void _PhysicsProcess(double delta)
+	
+	{
+		if(_RaycastUp.IsColliding())
+		
+		{
+			_AnimatedSprite.Play("hit");
+			
+
+		}
 
 	}
+
+
 }
+
+

@@ -86,7 +86,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hit",
-"speed": 5.0
+"speed": 4.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -120,10 +120,9 @@ _AnimatedSpritePath = NodePath("PurpleSlime")
 [node name="PurpleSlime" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -9)
 sprite_frames = SubResource("SpriteFrames_g1yml")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.237335
+frame_progress = 0.425127
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(7, 0)
@@ -148,4 +147,5 @@ target_position = Vector2(-6, 0)
 position = Vector2(12, -2)
 target_position = Vector2(6, 0)
 
+[connection signal="animation_finished" from="PurpleSlime" to="." method="OnAnimationFinished"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnPlayerEntered"]

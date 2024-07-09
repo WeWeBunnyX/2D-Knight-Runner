@@ -36,16 +36,3 @@ public partial class attack_slime : Node2D
 	{
 	}
 }
-
-public partial class SlimeArea: Area2D
-{
-
-
-	private void SlimeAreaEntered(Node2D body)
-	{
-
-		Console.WriteLine("Bruh");
-	}
-
-
-}

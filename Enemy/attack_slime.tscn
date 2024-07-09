@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6rch1l7f3s1h"]
+[gd_scene load_steps=18 format=3 uid="uid://b6rch1l7f3s1h"]
 
 [ext_resource type="Texture2D" uid="uid://tyd7mrmk4io3" path="res://assets/sprites/slime_purple.png" id="1_4ljbd"]
 [ext_resource type="Script" path="res://Enemy/attack_slime.cs" id="1_t4rpn"]
+[ext_resource type="Script" path="res://Enemy/SlimeArea.cs" id="3_d3e14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyiux"]
 atlas = ExtResource("1_4ljbd")
@@ -120,10 +121,12 @@ _AnimatedSpritePath = NodePath("PurpleSlime")
 position = Vector2(7, -9)
 sprite_frames = SubResource("SpriteFrames_g1yml")
 animation = &"idle"
-frame_progress = 0.54703
+frame_progress = 0.73737
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(7, 0)
+collision_mask = 2
+script = ExtResource("3_d3e14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -3)
@@ -141,4 +144,4 @@ target_position = Vector2(-6, 0)
 position = Vector2(12, -2)
 target_position = Vector2(6, 0)
 
-[connection signal="area_entered" from="Area2D" to="." method="SlimeAreaEntered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnPlayerEntered"]

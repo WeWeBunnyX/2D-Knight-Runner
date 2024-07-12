@@ -21,8 +21,8 @@ public partial class SlimeArea : Area2D
 
 	private void OnPlayerEntered(Node2D body){
 
-		//Console.WriteLine("Fullon");
-		//GD.Print("Fullon");
+		Console.WriteLine("Fullon");
+		GD.Print("Fullon");
 
 
 

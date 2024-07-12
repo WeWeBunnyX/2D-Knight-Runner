@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6rch1l7f3s1h"]
+[gd_scene load_steps=20 format=3 uid="uid://b6rch1l7f3s1h"]
 
 [ext_resource type="Texture2D" uid="uid://tyd7mrmk4io3" path="res://assets/sprites/slime_purple.png" id="1_4ljbd"]
 [ext_resource type="Script" path="res://Enemy/attack_slime.cs" id="1_t4rpn"]
 [ext_resource type="Script" path="res://Enemy/SlimeArea.cs" id="3_d3e14"]
+[ext_resource type="Script" path="res://Enemy/EnemyBody.cs" id="4_vi3ua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyiux"]
 atlas = ExtResource("1_4ljbd")
@@ -106,8 +107,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3dwk"]
-size = Vector2(14, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ye5lc"]
+radius = 45.2769
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lsypl"]
+radius = 7.0
+height = 14.0
 
 [node name="AttackSlime" type="Node2D"]
 position = Vector2(-7, 0)
@@ -124,19 +129,19 @@ sprite_frames = SubResource("SpriteFrames_g1yml")
 animation = &"hit"
 autoplay = "idle"
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(7, 0)
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(6, 0)
 collision_mask = 2
 script = ExtResource("3_d3e14")
 _AnimatedSprite = NodePath("../PurpleSlime")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_y3dwk")
+shape = SubResource("CircleShape2D_ye5lc")
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
-position = Vector2(7, -5)
-target_position = Vector2(0, -10)
+position = Vector2(7, -10)
+target_position = Vector2(0, -4)
 collision_mask = 3
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
@@ -149,6 +154,14 @@ target_position = Vector2(6, 0)
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_vi3ua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(7, -5)
+shape = SubResource("CapsuleShape2D_lsypl")
+
 [connection signal="animation_finished" from="PurpleSlime" to="." method="OnAnimationFinished"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="OnPlayerEntered"]
+[connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="OnPlayerEntered"]
+[connection signal="body_exited" from="DetectionArea" to="DetectionArea" method="OnPlayerExited"]
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

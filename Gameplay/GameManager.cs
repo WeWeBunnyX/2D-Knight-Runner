@@ -18,7 +18,7 @@ public partial class GameManager : Node
 	public void AddScore()
 	{
 		score += 1;
-		Console.WriteLine("Score: " + score);
+		GD.Print("Score: " + score);
 		_ScoreLabel.Text = "Score: " + score;
 	}
 

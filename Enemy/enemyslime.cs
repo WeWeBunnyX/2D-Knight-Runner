@@ -32,22 +32,22 @@ public partial class enemyslime : Node2D
     public override void _Process(double delta)
     {
 		
-                                                                    // Move in the current direction
+                                                                 
         Position += _movementDirection;
 
-                                                                       // Check for collisions with left and right raycasts
+                                                                     
         if (_RaycastLeft.IsColliding() && _movementDirection.X < 0)
         {
-                                                                       // Collided with left surface, reverse direction and flip
-			Console.WriteLine("Enemy Collided with left surface");
+                                                                       
+			//GD.Print("Enemy Collided with left surface");
 			_AnimatedSprite.FlipH = false;
             _movementDirection.X*= -1;
         }
 
         if (_RaycastRight.IsColliding() && _movementDirection.X> 0)
         {
-                                                                      // Collided with right surface, reverse direction and flip
-			Console.WriteLine("Enemy Collided with right surface");
+                                                                      
+			//GD.Print("Enemy Collided with right surface");
 			_AnimatedSprite.FlipH = true;
             _movementDirection.X *= -1;
         }

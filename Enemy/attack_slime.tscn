@@ -1,9 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6rch1l7f3s1h"]
+[gd_scene load_steps=18 format=3 uid="uid://b6rch1l7f3s1h"]
 
 [ext_resource type="Texture2D" uid="uid://tyd7mrmk4io3" path="res://assets/sprites/slime_purple.png" id="1_4ljbd"]
 [ext_resource type="Script" path="res://Enemy/attack_slime.cs" id="1_t4rpn"]
-[ext_resource type="Script" path="res://Enemy/SlimeArea.cs" id="3_d3e14"]
-[ext_resource type="Script" path="res://Enemy/EnemyBody.cs" id="4_vi3ua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyiux"]
 atlas = ExtResource("1_4ljbd")
@@ -122,6 +120,7 @@ _RaycastPathLeft = NodePath("RayCastLeft")
 _RaycastPathRight = NodePath("RayCastRight")
 _AnimatedSpritePath = NodePath("PurpleSlime")
 _TimerPath = NodePath("Timer")
+speed = 80.0
 
 [node name="PurpleSlime" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -9)
@@ -132,8 +131,6 @@ autoplay = "idle"
 [node name="DetectionArea" type="Area2D" parent="."]
 position = Vector2(6, 0)
 collision_mask = 2
-script = ExtResource("3_d3e14")
-_AnimatedSprite = NodePath("../PurpleSlime")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(0, -3)
@@ -155,7 +152,6 @@ target_position = Vector2(6, 0)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("4_vi3ua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(7, -5)

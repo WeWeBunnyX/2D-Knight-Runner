@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class attack_slime : Node2D
+public partial class AttackSlime : Node2D
 {
     [Export]
     private NodePath _RaycastPathUp;
@@ -29,6 +29,7 @@ public partial class attack_slime : Node2D
     private Vector2 _movementDirectionLeft = Vector2.Left;
     private Timer _Timer;
     private Node2D _Player; 
+    private bool _isChasing = false;
 
     public override void _Ready()
     {
@@ -40,18 +41,40 @@ public partial class attack_slime : Node2D
     }
 
 public override void _PhysicsProcess(double delta)
+
 {
-    Position += _movementDirectionRight * (float)delta*speed;
 
-    if (_RaycastRight.IsColliding() && _movementDirectionRight.X > 0)
+     if (_isChasing && _Player != null)
+
+        {
+            Vector2 directionToPlayer = (_Player.GlobalPosition - GlobalPosition).Normalized();
+            Position += directionToPlayer * speed * (float)delta;
+        }
+
+
+    else
+    
     {
-        FlipCast();
+    
+    
+        Position += _movementDirectionRight * (float)delta*speed;
+
+        if (_RaycastRight.IsColliding() && _movementDirectionRight.X > 0)
+         {
+              FlipCast();
+
+         }
+
+        else if (_RaycastLeft.IsColliding() && _movementDirectionRight.X < 0)
+        {
+              FlipCast();
+         }
+
+
+
 
     }
-    else if (_RaycastLeft.IsColliding() && _movementDirectionRight.X < 0)
-    {
-        FlipCast();
-    }
+
 }
 
     public void FlipCast()
@@ -62,6 +85,49 @@ public override void _PhysicsProcess(double delta)
 
 
     }
+
+    public void OnPlayerEntered(Node2D body)
+    
+    {
+
+        GD.Print("Player Detected !");
+        _Player = body;
+        _isChasing = true;
+        
+
+
+    }
+
+
+     public void OnPlayerExited(Node2D body)
+     
+     {
+        GD.Print("Player Exited");
+        _Player = null;
+        _isChasing = false;
+
+
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b6rch1l7f3s1h"]
 
 [ext_resource type="Texture2D" uid="uid://tyd7mrmk4io3" path="res://assets/sprites/slime_purple.png" id="1_4ljbd"]
-[ext_resource type="Script" path="res://Enemy/attack_slime.cs" id="1_t4rpn"]
+[ext_resource type="Script" path="res://Enemy/AttackSlime.cs" id="1_x4s3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyiux"]
 atlas = ExtResource("1_4ljbd")
@@ -114,7 +114,7 @@ height = 14.0
 
 [node name="AttackSlime" type="Node2D"]
 position = Vector2(-7, 0)
-script = ExtResource("1_t4rpn")
+script = ExtResource("1_x4s3t")
 _RaycastPathUp = NodePath("RayCastUp")
 _RaycastPathLeft = NodePath("RayCastLeft")
 _RaycastPathRight = NodePath("RayCastRight")
@@ -158,6 +158,6 @@ position = Vector2(7, -5)
 shape = SubResource("CapsuleShape2D_lsypl")
 
 [connection signal="animation_finished" from="PurpleSlime" to="." method="OnAnimationFinished"]
-[connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="OnPlayerEntered"]
-[connection signal="body_exited" from="DetectionArea" to="DetectionArea" method="OnPlayerExited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="OnPlayerEntered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="OnPlayerExited"]
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
